@@ -21,25 +21,25 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <PlDriver>
-        <FirstRun>0</FirstRun>
         <MemConfigValue>C:\iar\ewarm-9.60.3\arm\config\debugger\TexasInstruments\MSPM0G3519.ddf</MemConfigValue>
+        <FirstRun>0</FirstRun>
     </PlDriver>
     <Jet>
-        <JetConnSerialNo>CMSIS-DAP v2:00000080066BFF534867784967182457A5A5A5A597969908</JetConnSerialNo>
-        <JetConnFoundProbes />
-        <PrevWtdReset>System</PrevWtdReset>
         <DisableInterrupts>0</DisableInterrupts>
         <LeaveRunning>0</LeaveRunning>
         <MultiCoreRunAll>0</MultiCoreRunAll>
         <CpuHaltOnBreakpointSet>0</CpuHaltOnBreakpointSet>
         <OnlineReset>Software</OnlineReset>
+        <JetConnSerialNo>CMSIS-DAP v2:00000080066BFF534867784967182457A5A5A5A597969908</JetConnSerialNo>
+        <JetConnFoundProbes />
+        <PrevWtdReset>System</PrevWtdReset>
     </Jet>
     <ArmDriver>
         <EnableCache>1</EnableCache>
         <EnforceMemoryConfiguration>1</EnforceMemoryConfiguration>
     </ArmDriver>
     <DebugChecksum>
-        <Checksum>1267526835</Checksum>
+        <Checksum>1534123767</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -120,8 +120,9 @@
     </CallStackStripe>
     <Aliases>
         <A0>_ "/home/developer/.cache/bazel/_bazel_developer/2ca1f4ebdc59348ffdc31d97a51a98d5/execroot/__main__/bazel-out/k8-opt/bin/source/ti/driverlib\dl_common.h" ""</A0>
-        <A1>_ "/home/developer/.cache/bazel/_bazel_developer/2ca1f4ebdc59348ffdc31d97a51a98d5/execroot/__main__/bazel-out/k8-opt/bin/source/ti/driverlib\dl_spi.h" ""</A1>
-        <Count>2</Count>
+        <A1>_ "/home/developer/.cache/bazel/_bazel_developer/2ca1f4ebdc59348ffdc31d97a51a98d5/execroot/__main__/bazel-out/k8-opt/bin/source/ti/driverlib\dl_spi.c" ""</A1>
+        <A2>_ "/home/developer/.cache/bazel/_bazel_developer/2ca1f4ebdc59348ffdc31d97a51a98d5/execroot/__main__/bazel-out/k8-opt/bin/source/ti/driverlib\dl_spi.h" ""</A2>
+        <Count>3</Count>
         <SuppressDialog>1</SuppressDialog>
     </Aliases>
 </settings>

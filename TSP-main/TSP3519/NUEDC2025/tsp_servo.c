@@ -6,8 +6,8 @@
 #include <math.h>
 #include "tsp_pid.h"
 
-#define SERVO_CENTER_X 1200
-#define SERVO_CENTER_Y 1200
+#define SERVO_CENTER_X 1100
+#define SERVO_CENTER_Y 1500
 float k_angle_to_duty = 795.0f / 90.0f; // 90度对应795个脉宽单位
 
 extern uint16_t route_x[999]; // 路径点X坐标数组

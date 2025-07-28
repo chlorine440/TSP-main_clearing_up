@@ -98,28 +98,33 @@ void UART3_IRQHandler (void)
 	DL_UART_clearInterruptStatus(UART3, UART3->CPU_INT.RIS);
 }
 */
-void UART6_IRQHandler (void)
-{
-	uint8_t data;
 
-	if(!DL_UART_isRXFIFOEmpty(K230_INST))
-	{
-		/* read one byte from the receive data register */
-		data = (uint8_t)DL_UART_Main_receiveData(K230_INST);
-        if(data == '\n' || data == '\r') {
-            // 处理换行符或回车符
-            if(rx_idx > 0) {
-                rx_buffer[rx_idx] = '\0'; // 结束字符串
-                rx_idx = 0; // 重置索引
-                rx_flag = 1; // 读到了一个完整的命令
-                
-            }
-        } else if(rx_idx < 255) {
-            // 确保不会溢出缓冲区
-            // 将数据存入缓冲区
-            rx_buffer[rx_idx++] = data;
-        }
-	}
+void UART6_IRQHandler(void)
+{
+    uint8_t data;
+	static uint8_t uart_start = 0;
+    if (!DL_UART_isRXFIFOEmpty(K230_INST))
+    {
+        data = (uint8_t)DL_UART_Main_receiveData(K230_INST);
+
+        if (data == '<') {
+            uart_start = 1;
+			return ;
+        } 
+		if(uart_start == 1) {
+			if (data == '>') {
+				if (rx_idx < 255) {
+					rx_buffer[rx_idx] = '\0';
+					rx_flag = 1;
+					uart_start = 0;
+				}
+				rx_idx = 0;
+			} 
+			else if (rx_idx < 255) {
+				rx_buffer[rx_idx++] = data;
+			}
+		}
+    }
 }
 
 void GROUP1_IRQHandler(void)
@@ -140,5 +145,3 @@ void GROUP1_IRQHandler(void)
 		DL_GPIO_clearInterruptStatus(PORTA_PORT, PORTA_PHA0_PIN);
 	}
 }
-
-

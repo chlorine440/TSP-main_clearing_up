@@ -1,42 +1,36 @@
 # ninja log v5
-2	488	7754014994015461	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_battery.o	3034f720785d87ce
+2	589	7754024603762804	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_battery.o	3034f720785d87ce
 1	3161	7754011825014743	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_ccd_image.o	fa7313c3764b874c
-0	1172	7754014765067870	build_ide.ninja	45917f13a18cd19f
-2	811	7754017318392877	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/SysConfig Generated Files_5435349133262493662.dir/ti_msp_dl_config.o	a38a924586d45193
-1330	2626	7754011822998490	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_pid.o	6b4b2d9181bc977e
+9787	11528	7754055930907951	build_ide.ninja	45917f13a18cd19f
+1	608	7754093326583906	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_pid.o	6b4b2d9181bc977e
+2	706	7754068311898291	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/SysConfig Generated Files_5435349133262493662.dir/ti_msp_dl_config.o	a38a924586d45193
 5702	6710	7753988286642384	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_uart.o	35a1a47d3d699eed
-645	3147	7754011823093586	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_isr.o	78c683e64fdfa156
-163	682	7754017317144079	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_adc.o	e4ea8cc7242f2f91
+12	1025	7754045737745800	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_isr.o	78c683e64fdfa156
+169	708	7754020697160855	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_adc.o	e4ea8cc7242f2f91
 164	2802	7754011822948499	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/Kalman.o	1fa146fb7ee3e07a
-0	2350	7753988212007546	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/SysConfig_Generated_Files.ipcf	e0ecced729df9d41
+0	9786	7754055912695455	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/SysConfig_Generated_Files.ipcf	e0ecced729df9d41
 0	2835	7753988248196009	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/iar_102420246905159791.dir/startup_mspm0g351x_iar.o	3e2ece3aa8b839ec
-2	557	7754013931197028	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/empty_mspm0g3519_13168490636323535303.dir/TSP3519.o	26558af65808b0d2
-965	2296	7754011823263582	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_servo.o	1d0b6ae7f01ac350
+1	702	7754092021848796	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/empty_mspm0g3519_13168490636323535303.dir/TSP3519.o	26558af65808b0d2
+1	685	7754081059534920	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_servo.o	1d0b6ae7f01ac350
 482	3166	7754011824284494	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_menu.o	28a14dffb56218cd
 795	2974	7754011823502440	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_motor.o	70cf333810c84ed1
-2630	3580	7754011836647887	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/TSP_CCD.o	161311272dcce631
 2300	3530	7754011836123080	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_gpio.o	62b6535ea05be101
-2171	3547	7754011836323081	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_pwm.o	bc6e699a1d5e8ba9
+317	929	7754023218672444	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/TSP_CCD.o	161311272dcce631
+456	1130	7754060962504461	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_pwm.o	bc6e699a1d5e8ba9
 2804	3566	7754011836499953	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_qei.o	22efe3a83038a3f3
 1532	3157	7754011823849266	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/TSP_MPU6050.o	12e094e8c7267129
 2458	3609	7754011836938343	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_i2c.o	780dffaebdf3cdf4
 2978	3900	7754011839831238	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/TSP_TFT18.o	6bbce83ad572a3fe
-813	1085	7754017321185082	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
-2	564	7754019662654726	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_battery.o	3034f720785d87ce
-565	825	7754019665303321	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
-1	1149	7754020535015304	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/SysConfig_Generated_Files.ipcf	e0ecced729df9d41
-1150	1575	7754020539990444	build_ide.ninja	45917f13a18cd19f
-2	717	7754020547220192	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_adc.o	e4ea8cc7242f2f91
-200	901	7754020549090876	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/SysConfig Generated Files_5435349133262493662.dir/ti_msp_dl_config.o	a38a924586d45193
-903	1145	7754020551559899	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
-169	708	7754020697160855	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_adc.o	e4ea8cc7242f2f91
-6	835	7754020698443193	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/SysConfig Generated Files_5435349133262493662.dir/ti_msp_dl_config.o	a38a924586d45193
-838	1110	7754020701220986	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
-2	811	7754023217543756	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/empty_mspm0g3519_13168490636323535303.dir/TSP3519.o	26558af65808b0d2
-165	832	7754023217621213	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_battery.o	3034f720785d87ce
-317	929	7754023218672444	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/TSP_CCD.o	161311272dcce631
-932	1218	7754023221540292	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
-2	589	7754024603762804	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/TSP3519_9401757970942732151.dir/tsp_battery.o	3034f720785d87ce
-591	912	7754024607027193	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
-2	529	7754025558760266	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/empty_mspm0g3519_13168490636323535303.dir/TSP3519.o	26558af65808b0d2
-531	843	7754025561914158	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
+611	920	7754093329700687	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
+272	912	7754098455001846	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_pid.o	6b4b2d9181bc977e
+2	916	7754098455001846	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/empty_mspm0g3519_13168490636323535303.dir/TSP3519.o	26558af65808b0d2
+919	1193	7754098457806016	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
+2	602	7754101062165160	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_pid.o	6b4b2d9181bc977e
+604	880	7754101064950079	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
+1	1043	7754102214663910	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/empty_mspm0g3519_13168490636323535303.dir/TSP3519.o	26558af65808b0d2
+278	1054	7754102214762913	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_pid.o	6b4b2d9181bc977e
+1056	1320	7754102217444570	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
+2	570	7754103084983863	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_pid.o	6b4b2d9181bc977e
+571	876	7754103088061024	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa
+1	609	7754103732364855	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Obj/NUEDU2025_11847588325976546582.dir/tsp_pid.o	6b4b2d9181bc977e
+611	861	7754103734895004	D:/Documents/nuedc/TSP-main_clearing_up/TSP-main/TSP3519/iar/Debug/Exe/empty_mspm0g3519_nortos_iar.out	687f9f21975303aa

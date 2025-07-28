@@ -333,14 +333,14 @@ SYSCONFIG_WEAK void SYSCFG_DL_Servo_init(void) {
 		DL_TIMERG_CAPTURE_COMPARE_0_INDEX);
 
     DL_TimerG_setCaptCompUpdateMethod(Servo_INST, DL_TIMER_CC_UPDATE_METHOD_IMMEDIATE, DL_TIMERG_CAPTURE_COMPARE_0_INDEX);
-    DL_TimerG_setCaptureCompareValue(Servo_INST, 2000, DL_TIMER_CC_0_INDEX);
+    DL_TimerG_setCaptureCompareValue(Servo_INST, 1200, DL_TIMER_CC_0_INDEX);
 
     DL_TimerG_setCaptureCompareOutCtl(Servo_INST, DL_TIMER_CC_OCTL_INIT_VAL_LOW,
 		DL_TIMER_CC_OCTL_INV_OUT_DISABLED, DL_TIMER_CC_OCTL_SRC_FUNCVAL,
 		DL_TIMERG_CAPTURE_COMPARE_1_INDEX);
 
     DL_TimerG_setCaptCompUpdateMethod(Servo_INST, DL_TIMER_CC_UPDATE_METHOD_IMMEDIATE, DL_TIMERG_CAPTURE_COMPARE_1_INDEX);
-    DL_TimerG_setCaptureCompareValue(Servo_INST, 2000, DL_TIMER_CC_1_INDEX);
+    DL_TimerG_setCaptureCompareValue(Servo_INST, 1200, DL_TIMER_CC_1_INDEX);
 
     DL_TimerG_enableClock(Servo_INST);
 

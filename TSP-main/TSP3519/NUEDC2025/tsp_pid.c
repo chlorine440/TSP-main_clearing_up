@@ -2,10 +2,10 @@
 
 // int16_t dc = 0; // 电机控制的占空比，全局变量
 
-float kp_motor = 1.0f; // 电机控制的比例系数
+float kp_motor = 0.1f; // 电机控制的比例系数
 float ki_motor = 0.0f;
 float kd_motor = 0.0f; // 电机控制的微分系数
-float kp_servo = 0.2f; // 舵机控制的比例系数
+float kp_servo = 0.1f; // 舵机控制的比例系数
 float ki_servo = 0.0f;
 float kd_servo = 0.0f; // 舵机控制的微分系数
 
@@ -32,18 +32,21 @@ extern uint16_t servo2_y;
 
 void tsp_servo_control_pid(float target_x, float target_y, float current_x, float current_y){
 
-    // TODO: 实现舵机控制PID算法
     int16_t output_x = tsp_pid_control(target_x, current_x, kp_servo, ki_servo, kd_servo);
     int16_t output_y = tsp_pid_control(target_y, current_y, kp_servo, ki_servo, kd_servo);
     // 控制舵机
     servo1_x -= output_x;
-    servo2_y += output_y;
+    servo2_y -= output_y;
+    tsp_tft18_show_int16(80, 1, output_x);
+    tsp_tft18_show_int16(80, 2, output_y);
     if (servo1_x < 500) servo1_x = 500;
     if (servo1_x > 2050) servo1_x = 2050;
-    if (servo2_y < 500) servo2_y = 500;
-    if (servo2_y > 2050) servo2_y = 2050;
-    tsp_servo_angle(SERVO1, servo1_x);
-    tsp_servo_angle(SERVO2, servo2_y);
+    if (servo2_y < 900) servo2_y = 900;
+    if (servo2_y > 1300) servo2_y = 1300;
+    tsp_tft18_show_int16(80, 3, servo1_x);
+    tsp_tft18_show_int16(80, 4, servo2_y);
+    //tsp_servo_angle(SERVO1, servo1_x);
+    //tsp_servo_angle(SERVO2, servo2_y);
 }
 
 // 通用pid控制函数

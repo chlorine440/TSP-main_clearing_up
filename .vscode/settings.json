@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "tsp_common_headfile.h": "c",
+        "tsp_battery.h": "c"
+    }
+}

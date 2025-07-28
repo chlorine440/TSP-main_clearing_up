@@ -1,0 +1,19 @@
+C:\iar\ewarm-9.60.3\arm\bin\armPROC.dll
+
+ C:\iar\ewarm-9.60.3\arm\bin\armJET.dll
+
+ D:\Documents\nuedc\TSP-main_clearing_up\TSP-main\TSP3519\iar\Debug\Exe\empty_mspm0g3519_nortos_iar.out
+
+ --plugin=C:\iar\ewarm-9.60.3\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=C:\iar\ewarm-9.60.3\arm/config/debugger/TexasInstruments/MSPM0GX51X.dmac
+
+ --device_macro=C:\iar\ewarm-9.60.3\arm/config/debugger/TexasInstruments/MSPM0_Dssm.dmac
+
+ --macro_param=MassEraseBeforeFlashing=1
+
+ --flash_loader=C:\iar\ewarm-9.60.3\arm/config/flashloader/TexasInstruments/FlashMSPM0GX519.board
+
+ 
+
+

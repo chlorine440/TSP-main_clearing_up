@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "tsp_i2c.h": "c",
+        "ti_msp_dl_config.h": "c",
+        "tsp_isr.h": "c",
+        "tsp_gpio.h": "c",
+        "tsp_common_headfile.h": "c",
+        "stdint.h": "c",
+        "tsp_adc.h": "c",
+        "stdbool.h": "c",
+        "tsp_ccd.h": "c",
+        "math.h": "c",
+        "tsp_tft18.h": "c"
+    },
+    "Codegeex.RepoIndex": true
+}

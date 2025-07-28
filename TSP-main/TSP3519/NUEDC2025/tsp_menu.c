@@ -22,7 +22,12 @@ uint8_t menu_item0[8][20]=
 {
 	"1.OpenLoop",
 	"2.CloseLoop",
-	"3.ParaSet"
+	"3.ParaSet",
+	"4.PID", 
+	"5.",
+	"6.",
+	"7.",
+	"8.Battery"	
 };
 
 // extern float kp_motor = 1.0f; // 电机控制的比例系数
@@ -55,11 +60,11 @@ uint8_t tsp_menu_loop(void)
 	tsp_tft18_show_str(32, 0, menu_item0[0]);
 	tsp_tft18_show_str(32, 1, menu_item0[1]);
 	tsp_tft18_show_str(32, 2, menu_item0[2]);
-	// tsp_tft18_show_str(32, 3, menu_item0[3]);
-	// tsp_tft18_show_str(32, 4, menu_item0[4]);
-	// tsp_tft18_show_str(32, 5, menu_item0[5]);
-	// tsp_tft18_show_str(32, 6, menu_item0[6]);
-	// tsp_tft18_show_str(32, 7, menu_item0[7]);
+	tsp_tft18_show_str(32, 3, menu_item0[3]);
+	tsp_tft18_show_str(32, 4, menu_item0[4]);
+	tsp_tft18_show_str(32, 5, menu_item0[5]);
+	tsp_tft18_show_str(32, 6, menu_item0[6]);
+	tsp_tft18_show_str(32, 7, menu_item0[7]);
 
 	show_menu_cursor(ItemNumber, WHITE);
 	

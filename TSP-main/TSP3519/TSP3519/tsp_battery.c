@@ -21,14 +21,6 @@ float tsp_battery_voltage(void)
 
 
 
-
-
-
-
-
-
-
-
 void ADC0_IRQHandler(void){
     // ADC1_IRQHandler();
     switch(DL_ADC12_getPendingInterrupt(BATTERY_INST)) {

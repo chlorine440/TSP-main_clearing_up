@@ -34,6 +34,10 @@ void tsp_servo_control_pid(float target_x, float target_y, float current_x, floa
 
     int16_t output_x = tsp_pid_control(target_x, current_x, kp_servo, ki_servo, kd_servo);
     int16_t output_y = tsp_pid_control(target_y, current_y, kp_servo, ki_servo, kd_servo);
+    if(output_x > 30) output_x = 30; // 限制最大偏移
+    if(output_x < -30) output_x = -30; // 限制最小偏移
+    if(output_y > 30) output_y = 30; // 限制最大偏移
+    if(output_y < -30) output_y = -30; // 限制最小偏移
     // 控制舵机
     servo1_x -= output_x;
     servo2_y -= output_y;
@@ -41,12 +45,13 @@ void tsp_servo_control_pid(float target_x, float target_y, float current_x, floa
     tsp_tft18_show_int16(80, 2, output_y);
     if (servo1_x < 500) servo1_x = 500;
     if (servo1_x > 2050) servo1_x = 2050;
-    if (servo2_y < 900) servo2_y = 900;
-    if (servo2_y > 1300) servo2_y = 1300;
+    if (servo2_y < 1100) servo2_y = 1100;
+    if (servo2_y > 1700) servo2_y = 1700;
     tsp_tft18_show_int16(80, 3, servo1_x);
     tsp_tft18_show_int16(80, 4, servo2_y);
-    //tsp_servo_angle(SERVO1, servo1_x);
-    //tsp_servo_angle(SERVO2, servo2_y);
+    tsp_servo_angle(SERVO1, servo1_x);
+    tsp_servo_angle(SERVO2, servo2_y);
+    // while(PUSH()){}
 }
 
 // 通用pid控制函数

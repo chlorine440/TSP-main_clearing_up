@@ -54,7 +54,7 @@ void tsp_servo_angle(uint8_t channel, uint16_t pulse_width){
 			if (CH1_UPPER_LIMIT < pulse_width)
 				duty = CH1_UPPER_LIMIT;
 			DL_TimerG_setCaptureCompareValue(Servo_INST, duty, DL_TIMER_CC_0_INDEX);
-            tsp_tft18_show_str_color(0, 1, "Servo1 Angle Set", BLUE, YELLOW);
+            //tsp_tft18_show_str_color(0, 1, "Servo1 Angle Set", BLUE, YELLOW);
 			break;
 		case SERVO2:
 			if (CH2_LOWER_LIMIT > pulse_width)

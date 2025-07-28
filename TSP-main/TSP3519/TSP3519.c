@@ -43,6 +43,8 @@ uint16_t route_x[999]; // 路径点X坐标数组
 uint16_t route_y[999]; // 路径点Y坐标数组
 uint16_t route_index = 0; // 路径点索引
 
+char buf[64];
+
 
 uint8_t speed = 0; // 目标速度
 
@@ -84,10 +86,10 @@ void uart6_test(void)
     static float step_size = 0.1f; // 每次移动的步长，可调
 
     // 矩形的四个顶点
-    uint16_t x1 = 10,y1 = 10;
-    uint16_t x2 = 100,y2 = 10;
-    uint16_t x3 = 100,y3 = 80;
-    uint16_t x4 = 10,y4 = 80;
+    uint16_t x1 = 100,y1 = 100;
+    uint16_t x2 = 300,y2 = 100;
+    uint16_t x3 = 300,y3 = 300;
+    uint16_t x4 = 100,y4 = 300;
 
     int x_red = 0;
     int y_red = 0;
@@ -126,26 +128,48 @@ void uart6_test(void)
         float target_x = px1 + (px2-px1)*t;
         float target_y = py1 + (py2-py1)*t;
         
-        if(x_red == 0 && y_red == 0){
-            tsp_servo_angle(SERVO1, 1500);
-            tsp_servo_angle(SERVO2, 1100);
-        }
-        else{
-            tsp_servo_control_pid(target_x, target_y, x_red, y_red);
-        }
+
+        tsp_servo_control_pid(target_x, target_y, x_red, y_red);
 
         tsp_tft18_show_uint16(0, 4, x_red);
         tsp_tft18_show_uint16(0, 5, y_red);
         tsp_tft18_show_uint16(0, 6, target_x);
         tsp_tft18_show_uint16(0, 7, target_y);
 
+        // 判断是否到达目标点，切换到下一边
+        float err_x = target_x - x_red;
+        float err_y = target_y - y_red;
+        if (fabs(err_x)<10 && fabs(err_y)<10){
+            t += step_size;
+            if(t>=1.0f){
+                t = 0.0f;
+                // edge_step = (edge_step+1)%4;
+                if (edge_step++ == 4){
+                    // delay_1ms(10000); // 等待10秒
+                    edge_step = 0; // 重置到第一边
+                }
+            }
+        }
+
         if(S0())break;
     }
     while(S0()){}//等待S0释放
 }
 
+void show_battery_voltage(void)
+{ 
+    tsp_tft18_clear(BLACK);
+    while(1)
+    {
+        float voltage = tsp_battery_voltage(); // 获取电池电压
+        sprintf(buf, "Vbat: %.3f mV", voltage);
+        tsp_tft18_show_str(0, 8, buf);
+        if(S0())break;
+    }
+    while(S0()){}//等待S0释放
+}
 void test(void){
-tsp_tft18_clear(BLACK);
+    tsp_tft18_clear(BLACK);
     uint8_t edge_step = 0; // 当前运动到哪条边
     static float t = 0.0f;    // 边上插值参数
     static float step_size = 0.1f; // 每次移动的步长，可调
@@ -180,7 +204,7 @@ tsp_tft18_clear(BLACK);
                 // x3 = tr5; y3 = tr6;
                 // x4 = tr7; y4 = tr8;
             }
-	    }	
+	    	
         // 当前运动到哪条边
         switch(edge_step){
             case 0: px1=x1; py1=y1; px2=x2; py2=y2; break;
@@ -206,6 +230,21 @@ tsp_tft18_clear(BLACK);
         tsp_tft18_show_uint16(0, 6, target_x);
         tsp_tft18_show_uint16(0, 7, target_y);
 
+        // 判断是否到达目标点，切换到下一边
+        float err_x = target_x - x_red;
+        float err_y = target_y - y_red;
+        if (fabs(err_x)<10 && fabs(err_y)<10){
+            t += step_size;
+            if(t>=1.0f){
+                t = 0.0f;
+                // edge_step = (edge_step+1)%4;
+                if (edge_step++ == 3){
+                    // delay_1ms(10000); // 等待10秒
+                    edge_step = 0; // 重置到第一边
+                }
+            }
+        }
+        }
         if(S0())break;
     }
     while(S0()){}//等待S0释放
@@ -216,7 +255,6 @@ tsp_tft18_clear(BLACK);
 int main(void)
 {
 	uint32_t count=0;
-    char buf[64];
 	//系统配置初始化
 	SYSCFG_DL_init();
 	Board_init();
@@ -246,6 +284,9 @@ int main(void)
 				break;
 			case 6U:
 				break;
+            case 7U:
+                show_battery_voltage();
+                break;
 			default:break;
 		}
 		while(S0()) {}	// wait until S3 released

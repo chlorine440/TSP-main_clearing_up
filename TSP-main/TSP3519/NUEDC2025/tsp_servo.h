@@ -1,5 +1,7 @@
 #ifndef TSP_SERVO_H
 #define TSP_SERVO_H
+#define SERVO_CENTER_X 1100
+#define SERVO_CENTER_Y 1350
 
 #include <stdint.h>
 

@@ -52,6 +52,10 @@ float kp_turn_motor = 1.0f; // 原地转向电机控制的比例系数
 float ki_turn_motor = 0.0f;
 float kd_turn_motor = 0.0f; // 原地转向电机控制的微分系数
 
+extern float kp_servo; // 舵机控制的比例系数
+extern float ki_servo; // 舵机控制的积分系数
+extern float kd_servo; // 舵机控制的微分系数
+
 float kp_angle_to_err = 1.0f; // 角度转误差的比例系数
 uint8_t flag_20_ms = 0; // 用于标记 20 ms 周期
 uint8_t RES_value = 0; // 旋转编码器的值
@@ -77,18 +81,20 @@ void Board_init(void){
 
 	//tsp_tft18_test_color();
 	//tsp_tft18_show_str_color(0, 0, "NUEDC-2025 SAIS@SJTU", BLUE, YELLOW);
+    tsp_servo_angle(SERVO1, SERVO_CENTER_X);
+    tsp_servo_angle(SERVO2, SERVO_CENTER_Y);
 }
 void uart6_test(void)
 {
     tsp_tft18_clear(BLACK);
     uint8_t edge_step = 0; // 当前运动到哪条边
     static float t = 0.0f;    // 边上插值参数
-    static float step_size = 0.1f; // 每次移动的步长，可调
+    static float step_size = 0.25f; // 每次移动的步长，可调
 
     // 矩形的四个顶点
     uint16_t x1 = 100,y1 = 100;
-    uint16_t x2 = 300,y2 = 100;
-    uint16_t x3 = 300,y3 = 300;
+    uint16_t x2 = 500,y2 = 100;
+    uint16_t x3 = 500,y3 = 300;
     uint16_t x4 = 100,y4 = 300;
 
     int x_red = 0;
@@ -103,7 +109,7 @@ void uart6_test(void)
         if(S0())break;
     }
     while(1){
-        tsp_tft18_show_uint8(0, 2, rx_flag);
+        //tsp_tft18_show_uint8(0, 2, rx_flag);
         if(rx_flag) {
             rx_flag = 0; // 清除标志
             // 解析格式:
@@ -115,7 +121,7 @@ void uart6_test(void)
                 // x3 = tr5; y3 = tr6;
                 // x4 = tr7; y4 = tr8;
             }
-	    }	
+	    
         // 当前运动到哪条边
         switch(edge_step){
             case 0: px1=x1; py1=y1; px2=x2; py2=y2; break;
@@ -131,10 +137,10 @@ void uart6_test(void)
 
         tsp_servo_control_pid(target_x, target_y, x_red, y_red);
 
-        tsp_tft18_show_uint16(0, 4, x_red);
-        tsp_tft18_show_uint16(0, 5, y_red);
-        tsp_tft18_show_uint16(0, 6, target_x);
-        tsp_tft18_show_uint16(0, 7, target_y);
+        sscanf(buf, "x:%d y:%d", &x_red, &y_red);
+        tsp_tft18_show_str(0, 5, buf);
+        sscanf(buf, "target_x:%d target_y:%d", &target_x, &target_y);
+        tsp_tft18_show_str(0, 6, buf);
 
         // 判断是否到达目标点，切换到下一边
         float err_x = target_x - x_red;
@@ -144,12 +150,13 @@ void uart6_test(void)
             if(t>=1.0f){
                 t = 0.0f;
                 // edge_step = (edge_step+1)%4;
-                if (edge_step++ == 4){
+                if (edge_step++ == 3){
                     // delay_1ms(10000); // 等待10秒
                     edge_step = 0; // 重置到第一边
                 }
             }
         }
+    }
 
         if(S0())break;
     }
@@ -174,11 +181,13 @@ void test(void){
     static float t = 0.0f;    // 边上插值参数
     static float step_size = 0.1f; // 每次移动的步长，可调
 
-    // 矩形的四个顶点
-    uint16_t x1 = 10,y1 = 10;
-    uint16_t x2 = 100,y2 = 10;
-    uint16_t x3 = 100,y3 = 80;
-    uint16_t x4 = 10,y4 = 80;
+    uint16_t target_x1 = 100;
+    uint16_t target_y1 = 100;
+    uint16_t target_x2 = 500;
+    uint16_t target_y2 = 100;
+
+    uint16_t target_x = target_x1;
+    uint16_t target_y = target_y1;
 
     int x_red = 0;
     int y_red = 0;
@@ -191,10 +200,17 @@ void test(void){
         tsp_tft18_show_str(0, 0, "waiting for data");
         if(S0())break;
     }
+    uint16_t count = 0;
     while(1){
-        tsp_tft18_show_uint8(0, 2, rx_flag);
+        if(count_20ms %1000 == 0) {
+                count_20ms = 0;
+                tsp_tft18_show_uint16(0, 1, count);
+                count = 0;
+            }
         if(rx_flag) {
             rx_flag = 0; // 清除标志
+            count++;
+            
             // 解析格式:
             if(sscanf(rx_buffer, "Laser:(%d,%d)Tr:(%d,%d,%d,%d,%d,%d,%d,%d)", &cx, &cy, &tr1, &tr2, &tr3, &tr4, &tr5, &tr6, &tr7, &tr8) == 10) 
             {
@@ -204,51 +220,24 @@ void test(void){
                 // x3 = tr5; y3 = tr6;
                 // x4 = tr7; y4 = tr8;
             }
-	    	
-        // 当前运动到哪条边
-        switch(edge_step){
-            case 0: px1=x1; py1=y1; px2=x2; py2=y2; break;
-            case 1: px1=x2; py1=y2; px2=x3; py2=y3; break;
-            case 2: px1=x3; py1=y3; px2=x4; py2=y4; break;
-            case 3: px1=x4; py1=y4; px2=x1; py2=y1; break;
-            default: px1=x1; py1=y1; px2=x2; py2=y2; break;
-        }
-        // 插值计算目标点
-        float target_x = 200;
-        float target_y = 200;
-        
-        if(x_red == 0 && y_red == 0){
-            //tsp_servo_angle(SERVO1, 1500);
-            //tsp_servo_angle(SERVO2, 1100);
-        }
-        else{
-            tsp_servo_control_pid(target_x, target_y, x_red, y_red);
         }
 
-        tsp_tft18_show_uint16(0, 4, x_red);
-        tsp_tft18_show_uint16(0, 5, y_red);
-        tsp_tft18_show_uint16(0, 6, target_x);
-        tsp_tft18_show_uint16(0, 7, target_y);
-
-        // 判断是否到达目标点，切换到下一边
-        float err_x = target_x - x_red;
-        float err_y = target_y - y_red;
-        if (fabs(err_x)<10 && fabs(err_y)<10){
-            t += step_size;
-            if(t>=1.0f){
-                t = 0.0f;
-                // edge_step = (edge_step+1)%4;
-                if (edge_step++ == 3){
-                    // delay_1ms(10000); // 等待10秒
-                    edge_step = 0; // 重置到第一边
-                }
-            }
+        if(fabs(target_x1 - x_red) < 10 && fabs(target_y1 - y_red) < 10) {
+            target_x = target_x2;
+            target_y = target_y2;
         }
+        if(fabs(target_x2 - x_red) < 10 && fabs(target_y2 - y_red) < 10) {
+            target_x = target_x1;
+            target_y = target_y1;
         }
+        tsp_servo_control_pid(target_x, target_y, x_red, y_red);
+        delay_1ms(50); // 延时50ms
+        // para_set();
         if(S0())break;
     }
     while(S0()){}//等待S0释放
 }
+
 
 
 //---------------------------------------------主函数---------------------------------------------------//
@@ -259,8 +248,8 @@ int main(void)
 	SYSCFG_DL_init();
 	Board_init();
     //x加向右，y加向上
-    tsp_servo_angle(SERVO1, 1100);
-    tsp_servo_angle(SERVO2, 1500);
+    tsp_servo_angle(SERVO1, SERVO_CENTER_X);
+    tsp_servo_angle(SERVO2, SERVO_CENTER_Y);
 
 	while(1) {
 		menu_id = tsp_menu_loop();

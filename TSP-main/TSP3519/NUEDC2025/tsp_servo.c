@@ -6,8 +6,7 @@
 #include <math.h>
 #include "tsp_pid.h"
 
-#define SERVO_CENTER_X 1100
-#define SERVO_CENTER_Y 1500
+
 float k_angle_to_duty = 795.0f / 90.0f; // 90度对应795个脉宽单位
 
 extern uint16_t route_x[999]; // 路径点X坐标数组
@@ -17,8 +16,8 @@ extern float kp_servo; // 舵机控制的比例系数
 extern float ki_servo; // 舵机控制的积分系数
 extern float kd_servo; // 舵机控制的微分系数
 
-uint16_t servo1_x = SERVO_CENTER_X;
-uint16_t servo2_y = SERVO_CENTER_Y;
+float servo1_x = SERVO_CENTER_X;
+float servo2_y = SERVO_CENTER_Y;
 
 extern uint16_t point_x;
 extern uint16_t point_y;// 当前激光点坐标

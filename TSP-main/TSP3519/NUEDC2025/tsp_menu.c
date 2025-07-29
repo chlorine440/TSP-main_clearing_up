@@ -178,13 +178,13 @@ void para_set()
 	sprintf(value_str, "%2.1f", kd_motor);
 	tsp_tft18_show_str(88, 4, value_str);
 
-	sprintf(value_str, "%0.1f", kp_servo);
+	sprintf(value_str, "%0.3f", kp_servo);
 	tsp_tft18_show_str(88, 5, value_str);
 
-	sprintf(value_str, "%0.1f", ki_servo);
+	sprintf(value_str, "%0.3f", ki_servo);
 	tsp_tft18_show_str(88, 6, value_str);
 
-	sprintf(value_str, "%2.1f", kd_servo);
+	sprintf(value_str, "%2.3f", kd_servo);
 	tsp_tft18_show_str(88, 7, value_str);
 	item = item_t = 0;
 
@@ -308,25 +308,26 @@ void para_set()
 		case 4:		// Kp Servo
 			if(change == 1)
 			{
-				kp_servo += 0.1;
+				kp_servo += 0.01;
             if(kp_servo > 9.0)
               kp_servo = 9.0;
 			}
 			else if(change == 2)
-			{
-				if(kp_servo > 2.1 )
-				  kp_servo -= 0.1;
+			{			
+				kp_servo -= 0.01;
+			if(kp_servo < 0.0 )
+			   kp_servo = 0.0;
 			}
 			break;
 		case 5:		// Ki Servo
 			if(change == 1)
 			{
 				if(ki_servo < 1)
-				  ki_servo += 0.1;
+				  ki_servo += 0.01;
 			}
 			else if(change == 2)
 			{
-				ki_servo -= 0.1;
+				ki_servo -= 0.01;
             if(ki_servo < 0.0 )
                ki_servo = 0.0;
 			}
@@ -335,11 +336,11 @@ void para_set()
 			if(change == 1)
 			{
 				if(kd_servo < 15)
-				  kd_servo += 0.5;
+				  kd_servo += 0.01;
 			}
 			else if(change == 2)
 			{
-				kd_servo -= 0.5;
+				kd_servo -= 0.01;
             if(kd_servo < 0.0 )
                kd_servo = 0.0;
 			}
@@ -362,13 +363,13 @@ void para_set()
 			sprintf(value_str, "%0.1f", kd_motor);
 			tsp_tft18_show_str(88, 4, value_str);
 
-			sprintf(value_str, "%0.1f", kp_servo);
+			sprintf(value_str, "%0.3f", kp_servo);
 			tsp_tft18_show_str(88, 5, value_str);
 
-			sprintf(value_str, "%0.1f", ki_servo);
+			sprintf(value_str, "%0.3f", ki_servo);
 			tsp_tft18_show_str(88, 6, value_str);
 
-			sprintf(value_str, "%0.1f", kd_servo);
+			sprintf(value_str, "%0.3f", kd_servo);
 			tsp_tft18_show_str(88, 7, value_str);
 		}
 		// sprintf(value_str, "RES: %3d", RES_value);

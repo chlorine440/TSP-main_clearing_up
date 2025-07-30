@@ -5,10 +5,10 @@
 #define SPEED_SCALE  1.0f
 
 // 电机速度相关变量
-extern int16_t target_speed_qei1; // 目标速度 QEI1
-extern int16_t target_speed_qei2; // 目标速度 QEI2
-extern int16_t current_speed_qei1; // 当前速度 QEI1
-extern int16_t current_speed_qei2; // 当前速度 QEI2
+int16_t target_speed_qei1 = 0; // 目标速度 QEI1
+int16_t target_speed_qei2 = 0; // 目标速度 QEI2
+volatile int16_t current_speed_qei1 = 0; // 当前速度 QEI1
+volatile int16_t current_speed_qei2 = 0; // 当前速度 QEI2
 extern int16_t encoder_speed_motor1;
 extern int16_t encoder_speed_motor2;
 // 电机PID参数
@@ -60,15 +60,17 @@ void tsp_encoder_clear(void){
 void Motor_test(void){
     while(1){
         SLEEP_HIGH();
-        tsp_motor_control(50,MOTOR2);
-        uint32_t value[2];
-        tsp_encoder_get_value(value);
-        tsp_encoder_clear();
-        // 这里可以添加更多的测试逻辑
-        // 例如打印编码器值等
+        target_speed_qei1 = 2000;
+        target_speed_qei2 = 2000;
+        tsp_update_current_speed(); // 更新当前速度
+        tsp_speed_close_loop(); // 启动电机，速度闭环控制
+        // tsp_motor_control(10, MOTOR1);
+        // tsp_motor_control(10, MOTOR2);
         char buf[40];
-        tsp_tft18_show_uint16(0, 4, value[0]);
-        tsp_tft18_show_uint16(0, 5, value[1]);
+        sprintf(buf, "Motor1: %d", current_speed_qei1);
+        tsp_tft18_show_str(0, 4, buf);
+        sprintf(buf, "Motor2: %d", current_speed_qei2);
+        tsp_tft18_show_str(0, 5, buf);
     }
 }
 

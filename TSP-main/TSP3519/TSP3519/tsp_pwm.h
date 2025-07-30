@@ -42,8 +42,6 @@ extern float roll;
 extern float pitch;
 extern int16_t target_speed_qei1;
 extern int16_t target_speed_qei2;
-extern int16_t current_speed_qei1;
-extern int16_t current_speed_qei2;
 
 // 函数声明
 void pwm_init(void);

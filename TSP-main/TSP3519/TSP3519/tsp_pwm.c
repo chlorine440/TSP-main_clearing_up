@@ -89,8 +89,8 @@ void tsp_motor_voltage(uint8_t dir, uint16_t duty_cycle, uint8_t motor)
 				DL_TimerG_setCaptureCompareValue(Motor_INST, 0, DL_TIMER_CC_1_INDEX);
 			}
 			else if(motor == MOTOR2){
-				DL_TimerG_setCaptureCompareValue(Motor_INST, dc, DL_TIMER_CC_2_INDEX);
-				DL_TimerG_setCaptureCompareValue(Motor_INST, 0, DL_TIMER_CC_3_INDEX);
+				DL_TimerG_setCaptureCompareValue(Motor_INST, 0, DL_TIMER_CC_2_INDEX);
+				DL_TimerG_setCaptureCompareValue(Motor_INST, dc, DL_TIMER_CC_3_INDEX);
 			}
 			break;
 		case MOTORB:
@@ -99,8 +99,8 @@ void tsp_motor_voltage(uint8_t dir, uint16_t duty_cycle, uint8_t motor)
 				DL_TimerG_setCaptureCompareValue(Motor_INST, dc, DL_TIMER_CC_1_INDEX);
 			}
 			else if(motor == MOTOR2){
-				DL_TimerG_setCaptureCompareValue(Motor_INST, 0, DL_TIMER_CC_2_INDEX);
-				DL_TimerG_setCaptureCompareValue(Motor_INST, dc, DL_TIMER_CC_3_INDEX);
+				DL_TimerG_setCaptureCompareValue(Motor_INST, dc, DL_TIMER_CC_2_INDEX);
+				DL_TimerG_setCaptureCompareValue(Motor_INST, 0, DL_TIMER_CC_3_INDEX);
 			}
 			break;
 		default:

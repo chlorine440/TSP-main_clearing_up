@@ -32,10 +32,10 @@ void SysTick_Handler()
 		flag_20_ms = 1;
 		encoder_pulse_qei1 = TSP_QEI1_GetCount();
 		encoder_pulse_qei2 = TSP_QEI2_GetCount();
-		encoder_speed_motor1 = encoder_pulse_qei1 - 5000;
-		encoder_speed_motor2 = encoder_pulse_qei2 - 5000;
-		DL_Timer_setCounterValueAfterEnable(QEI_1_INST, 5000);
-		DL_Timer_setCounterValueAfterEnable(QEI_2_INST, 5000);
+		encoder_speed_motor1 = encoder_pulse_qei1 - 30000;
+		encoder_speed_motor2 = encoder_pulse_qei2 - 30000;
+		DL_Timer_setTimerCount(QEI_1_INST, 30000);
+		DL_Timer_setTimerCount(QEI_2_INST, 30000);
 	}
 }
 uint32_t get_systick_counter(void)

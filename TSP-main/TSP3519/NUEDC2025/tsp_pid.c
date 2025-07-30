@@ -5,7 +5,7 @@
 float kp_motor = 0.1f; // 电机控制的比例系数
 float ki_motor = 0.0f;
 float kd_motor = 0.0f; // 电机控制的微分系数
-float kp_servo = 0.03f; // 舵机控制的比例系数
+float kp_servo = 0.017f; // 舵机控制的比例系数
 float ki_servo = 0.0f;
 float kd_servo = 0.01f; // 舵机控制的微分系数
 

@@ -45,7 +45,6 @@ uint16_t route_index = 0; // 路径点索引
 
 char buf[64];
 
-
 uint8_t speed = 0; // 目标速度
 
 float kp_turn_motor = 1.0f; // 原地转向电机控制的比例系数
@@ -250,6 +249,7 @@ int main(void)
     //x加向右，y加向上
     tsp_servo_angle(SERVO1, SERVO_CENTER_X);
     tsp_servo_angle(SERVO2, SERVO_CENTER_Y);
+    Motor_test();
 
 	while(1) {
 		menu_id = tsp_menu_loop();
